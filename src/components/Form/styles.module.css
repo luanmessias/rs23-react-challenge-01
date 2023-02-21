@@ -1,0 +1,39 @@
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.form > input,
+.form > button {
+  height: 3.375rem;
+  box-sizing: border-box;
+  border-radius: var(--radius-default);
+}
+
+.form > input {
+  width: 100%;
+  padding: 0 1rem;
+  background-color: var(--gray-500);
+  border: 1px solid var(--black);
+}
+
+.form > button {
+  width: 5.625rem;
+  background-color: var(--blue-600);
+  border: none;
+  cursor: pointer;
+  line-height: none;
+  color: var(--gray-100);
+  font-weight: bold;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form > button > svg {
+  margin-left: 4px;
+}
