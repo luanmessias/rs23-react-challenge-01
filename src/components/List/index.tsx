@@ -1,8 +1,20 @@
 import styles from './styles.module.css';
 import ClipboardSVG from '../../assets/clipboard.svg';
 import Task from '../Task';
+import { useState } from 'react';
+import { v4 as uuidv4 } from "uuid";
 
 export default function List() {
+  
+  function handleAddTask() {
+    const newTask = {
+      id: uuidv4(),
+      title: 'New Task',
+      done: false,
+    }
+    setTaskList([...taskList, newTask]);
+  }
+
   return (
     <div className={styles.list}>
       <div className={styles.header}>

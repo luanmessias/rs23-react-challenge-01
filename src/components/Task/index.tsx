@@ -1,7 +1,13 @@
 import styles from './styles.module.css';
 import { Circle, CheckCircle, Trash } from 'phosphor-react';
 
-export default function List() {
+export type TaskType = {
+  id: string;
+  title: string;
+  done: boolean;
+};
+
+export default function Task() {
   return (
     <div className={styles.task}>
       <button className={styles.done}>
