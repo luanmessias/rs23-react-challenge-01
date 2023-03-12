@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
+  position: relative;
 }
 
 .form > input,
@@ -36,4 +37,13 @@
 
 .form > button > svg {
   margin-left: 4px;
+}
+
+.error {
+  color: var(--red-500);
+  font-size: 0.875rem;
+  width: 100%;
+  position: absolute;
+  bottom: -40px;
+  padding: 1rem;
 }

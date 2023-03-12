@@ -5,26 +5,37 @@ import { TaskType } from "../Task";
 import { v4 as uuidv4 } from "uuid";
 interface FormProps {
   handleAddTask: (task: TaskType) => void;
+  taskAlreadyExists: (title: string) => boolean;
 }
 
-export default function Form({ handleAddTask }: FormProps) {
+export default function Form({ handleAddTask, taskAlreadyExists }: FormProps) {
   const [taskText, setTaskText] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   function handleTask(event: ChangeEvent<HTMLInputElement>) {
     event.target.setCustomValidity("");
+    setErrorMessage("");
     setTaskText(event.target.value);
   }
 
   function handleFormSubmit(event: React.FormEvent) {
     event.preventDefault();
-    
+
+    const taskExists = taskAlreadyExists(taskText);
+
+    if (taskExists) {
+      setErrorMessage("Task already exists");
+      return;
+    }
+
     const newTask = {
       id: uuidv4(),
       title: taskText,
       done: false,
-    }
+    };
 
     handleAddTask(newTask);
+    setTaskText("");
   }
 
   function handleTaskInvalid(event: InvalidEvent<HTMLInputElement>) {
@@ -44,6 +55,7 @@ export default function Form({ handleAddTask }: FormProps) {
       <button type="submit">
         Add <PlusCircle size={24} />
       </button>
+      <div className={styles.error}>{errorMessage}</div>
     </form>
   );
 }

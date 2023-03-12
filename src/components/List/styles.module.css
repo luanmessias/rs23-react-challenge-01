@@ -30,6 +30,10 @@
   color: var(--gray-100);
 }
 
+.header .finished > strong {
+  border-radius: 5px;
+}
+
 .empty {
   display: flex;
   flex-direction: column;
