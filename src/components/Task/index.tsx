@@ -26,9 +26,9 @@ export default function Task({
         onClick={() => handleTaskDone(task.id)}
       >
         {task.done ? (
-          <Circle size={24} />
-        ) : (
           <CheckCircle weight="fill" size={24} />
+        ) : (
+          <Circle size={24} />
         )}
       </button>
 
